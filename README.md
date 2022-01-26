@@ -1,5 +1,5 @@
-# projet-specialise-2022-MoOaAaa
-projet-specialise-2022-MoOaAaa created by GitHub Classroom
+# projet-specialise-2022-Heidet_Lucas
+projet-specialise-2022-Heidet_Lucas created by GitHub Classroom
 <br><br>
 ### Lien du Docs kickoff du projet
 [Fiche de lancement Kickoff](https://docs.google.com/document/d/1IlirrAr3Jdopr6wFyn68wxsbH9y64H-jJQpRWOhnCWY/edit?usp=sharing)
