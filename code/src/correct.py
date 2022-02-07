@@ -12,25 +12,35 @@ if(argc > 2) :
 
 #PoC 1, acceder words Lexique avec python
 cwd = Path.cwd()
-print(cwd)
+#print(cwd)
 Lexique383Path = cwd/"datas"/"Lexique383"/"Lexique383.tsv"
 filepath = Path(Lexique383Path)
-print(filepath)
+#print(filepath)
 lex = pd.read_csv(filepath,sep='\t')
-print(lex.head(8))
+#print(lex.head(8))
 
 #PoC 2, corriger un mot en s'aidant de lexique
-lex1 = lex[["ortho", "phon", "lemme", "cgram"]]
+lex1 = lex[["ortho", "phon", "lemme", "cgram", "freqfilms2", "freqlivres"]]
 a = lex1[lex1["ortho"] == 'a']
-print(a)
-print("--------------------------")
+#print(a)
+#print("--------------------------")
 aVerb = lex1[(lex1["ortho"] == 'a') & (lex1["cgram"] == "VER")]
-print(aVerb)
-print("--------------------------")
+#print(aVerb)
+#print("--------------------------")
 
 print(lex1[lex1["ortho"] == mot])
 
-words = lex["ortho"].to_string(index=False)
+words = lex1["ortho"].to_string(index=False)
 words = words.split("\n")
 words = [word.lstrip() for word in words]
 # print(words)
+
+
+
+#---------------------------------
+def freq(mot, lex):
+    "Moyenne des frequences de `mot`"
+    freqfilm = lex.loc[lex["ortho"].isin([mot]),["freqfilms2"]]
+    return freqfilm
+
+print(freq(mot,lex1))
