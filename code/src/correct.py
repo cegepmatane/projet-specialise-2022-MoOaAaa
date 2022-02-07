@@ -12,8 +12,10 @@ if(argc > 2) :
 
 #PoC 1, acceder words Lexique avec python
 cwd = Path.cwd()
-Lexique383Path = cwd.parent/"datas"/"Lexique383"/"Lexique383.tsv"
+print(cwd)
+Lexique383Path = cwd/"datas"/"Lexique383"/"Lexique383.tsv"
 filepath = Path(Lexique383Path)
+print(filepath)
 lex = pd.read_csv(filepath,sep='\t')
 print(lex.head(8))
 
