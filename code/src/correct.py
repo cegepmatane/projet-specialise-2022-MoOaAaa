@@ -29,6 +29,7 @@ aVerb = lex1[(lex1["ortho"] == 'a') & (lex1["cgram"] == "VER")]
 #print("--------------------------")
 
 print(lex1[lex1["ortho"] == mot])
+print("--------------------------")
 
 words = lex1["ortho"].to_string(index=False)
 words = words.split("\n")
@@ -41,6 +42,7 @@ words = [word.lstrip() for word in words]
 def freq(mot, lex):
     "Moyenne des frequences de `mot`"
     freqfilm = lex.loc[lex["ortho"].isin([mot]),["freqfilms2"]]
-    return freqfilm
+    freqlivres = lex.loc[lex["ortho"].isin([mot]),["freqlivres"]]
+    return (freqfilm["freqfilms2"] + freqlivres["freqlivres"]).to_string(index=False)
 
 print(freq(mot,lex1))
