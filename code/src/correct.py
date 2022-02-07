@@ -41,10 +41,10 @@ words = [word.lstrip() for word in words]
 
 
 #---------------------------------
-def freq(mot, lex):
+def freq(mot):
     "Moyenne des frequences de `mot`"
-    freqfilm = lex.loc[lex["ortho"].isin([mot]),["freqfilms2"]]
-    freqlivres = lex.loc[lex["ortho"].isin([mot]),["freqlivres"]]
+    freqfilm = lex1.loc[lex1["ortho"].isin([mot]),["freqfilms2"]]
+    freqlivres = lex1.loc[lex1["ortho"].isin([mot]),["freqlivres"]]
     return (freqfilm["freqfilms2"] + freqlivres["freqlivres"]).to_string(index=False)
 
 #print(freq(mot,lex1))
@@ -59,7 +59,7 @@ def candidats(mot):
 
 def connu(mots):
     "les entrees de `mot` dans Lexique"
-    return lex1.loc[lex1["ortho"].isin([mots]),["ortho"]]["ortho"].to_string(index=False)
+    return list(lex1.loc[lex1["ortho"].isin(mots),["ortho"]]["ortho"])
 
 def edit1(mot):
     "Mots qui sont a une lettre de `mot`"
@@ -69,10 +69,16 @@ def edit1(mot):
     transpose   = [G + D[1] + D[0] + D[2:]  for G, D in coupes if len(D)>1]
     remplace    = [G + l + D[1:]            for G, D in coupes if D for l in lettres]
     insert      = [G + l + D                for G, D in coupes for l in lettres]
-    return set(suppr + transpose + remplace + insert)
+    return list(suppr + transpose + remplace + insert)
 
 def edit2(mot):
     "Mots qui sont a 2 lettre de `mot`"
     return (e2 for e1 in edit1(mot) for e2 in edit1(e1))
 
-print(connu(mot))
+print(connu(edit1(mot)))
+print("--------------------------")
+print(connu(edit2(mot)))
+print("--------------------------")
+print(candidats(mot))
+print("--------------------------")
+print(correction(mot))
