@@ -1,9 +1,8 @@
 import pandas as pd
-import os
+from pathlib import Path
 
-cwd = os.getcwd()
-Lexique383Path = ['..','datas','Lexique383','Lexique383.tsv']
-filepath = os.path.join(cwd + os.sep, Lexique383Path[0], Lexique383Path[1], Lexique383Path[2], Lexique383Path[3])
-
+cwd = Path.cwd()
+Lexique383Path = cwd.parent/"datas"/"Lexique383"/"Lexique383.tsv"
+filepath = Path(Lexique383Path)
 lex = pd.read_csv(filepath,sep='\t')
 print(lex.head(8))
