@@ -9,40 +9,39 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from code.src import Correcteur
 
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(800, 589)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(0, 500, 89, 25))
-        self.pushButton.setObjectName("pushButton")
-        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(100, 500, 121, 25))
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.textBrowser = QtWidgets.QTextBrowser(self.centralwidget)
-        self.textBrowser.setGeometry(QtCore.QRect(400, 0, 400, 490))
-        self.textBrowser.setObjectName("textBrowser")
-        self.verticalScrollBar = QtWidgets.QScrollBar(self.centralwidget)
-        self.verticalScrollBar.setGeometry(QtCore.QRect(784, 0, 16, 490))
-        self.verticalScrollBar.setOrientation(QtCore.Qt.Vertical)
-        self.verticalScrollBar.setObjectName("verticalScrollBar")
-        self.verticalScrollBar_2 = QtWidgets.QScrollBar(self.centralwidget)
-        self.verticalScrollBar_2.setGeometry(QtCore.QRect(383, 0, 16, 491))
-        self.verticalScrollBar_2.setOrientation(QtCore.Qt.Vertical)
-        self.verticalScrollBar_2.setObjectName("verticalScrollBar_2")
-        self.textEdit = QtWidgets.QTextEdit(self.centralwidget)
-        self.textEdit.setGeometry(QtCore.QRect(0, 0, 400, 490))
-        self.textEdit.setObjectName("textEdit")
-        self.pushButton.raise_()
-        self.pushButton_2.raise_()
-        self.textBrowser.raise_()
-        self.textEdit.raise_()
-        self.verticalScrollBar.raise_()
-        self.verticalScrollBar_2.raise_()
+
+        self.correctBtn = QtWidgets.QPushButton(self.centralwidget)
+        self.correctBtn.setGeometry(QtCore.QRect(0, 500, 89, 25))
+        self.correctBtn.setObjectName("correctBtn")
+        self.correctBtn.clicked.connect(self.correctClick)
+
+        self.suppr_all = QtWidgets.QPushButton(self.centralwidget)
+        self.suppr_all.setGeometry(QtCore.QRect(100, 500, 121, 25))
+        self.suppr_all.setObjectName("suppr_all")
+
+        self.correctedTxt = QtWidgets.QTextEdit(self.centralwidget)
+        self.correctedTxt.setGeometry(QtCore.QRect(405, 5, 390, 485))
+        self.correctedTxt.setReadOnly(True)
+        self.correctedTxt.setObjectName("correctedTxt")
+        self.correctedScrollBar = self.correctedTxt.verticalScrollBar()
+        self.correctedScrollBar.setValue(self.correctedScrollBar.maximum())
+
+        self.textToCorrect = QtWidgets.QTextEdit(self.centralwidget)
+        self.textToCorrect.setGeometry(QtCore.QRect(5, 5, 390, 485))
+        self.textToCorrect.setObjectName("textToCorrect")
+        self.textToCorrect.setPlaceholderText("Tapez du texte à corriger ou collez du texte")
+        self.toCorrectScrollBar = self.textToCorrect.verticalScrollBar()
+        self.toCorrectScrollBar.setValue(self.toCorrectScrollBar.maximum())
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 22))
@@ -58,5 +57,9 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Correcteur"))
-        self.pushButton.setText(_translate("MainWindow", "Corriger"))
-        self.pushButton_2.setText(_translate("MainWindow", "Tout supprimer"))
+        self.correctBtn.setText(_translate("MainWindow", "Corriger"))
+        self.suppr_all.setText(_translate("MainWindow", "Tout supprimer"))
+
+    def correctClick(self):
+        correct = self.textToCorrect.toPlainText()
+        return(correct)
