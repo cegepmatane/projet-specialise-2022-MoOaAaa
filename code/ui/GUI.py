@@ -9,7 +9,9 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import sys
 from code.src import Correcteur
+
 
 
 class Ui_MainWindow(object):
@@ -62,4 +64,4 @@ class Ui_MainWindow(object):
 
     def correctClick(self):
         correct = self.textToCorrect.toPlainText()
-        return(correct)
+        print(correct)
