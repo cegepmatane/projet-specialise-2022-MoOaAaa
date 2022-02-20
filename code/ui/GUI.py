@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
-from code.src import Correcteur
+from src.Correcteur import OrthoCorrect
 
 
 
