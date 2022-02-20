@@ -2,9 +2,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication
 import sys
 from pathlib import Path
-sys.path.insert(1, Path(__file__).parents[2].absolute())
-sys.path.insert(2, Path(__file__).parents[1].absolute())
-sys.path.extend([Path(__file__).parents[1] / "src"])
+sys.path.insert(1, str(Path(__file__).parents[2].absolute()))
+sys.path.insert(2, str(Path(__file__).parents[1].absolute()))
+sys.path.extend([str(Path(__file__).parents[1] / "src")])
 print(sys.path)
 import GUI
 
