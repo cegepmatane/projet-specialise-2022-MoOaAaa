@@ -10,11 +10,14 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
-from src.Correcteur import OrthoCorrect
+from src.GrammarCorrect import GrammarCorrect
 
 
 
 class Ui_MainWindow(object):
+
+    tool = GrammarCorrect()
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 589)
@@ -63,5 +66,6 @@ class Ui_MainWindow(object):
         self.suppr_all.setText(_translate("MainWindow", "Tout supprimer"))
 
     def correctClick(self):
-        correct = self.textToCorrect.toPlainText()
-        print(correct)
+        toCorrect = self.textToCorrect.toPlainText()
+        print(toCorrect)
+        self.correctedTxt.setText(str(self.tool.correct(toCorrect)))
