@@ -34,6 +34,7 @@ class Ui_MainWindow(object):
         self.suppr_all = QtWidgets.QPushButton(self.centralwidget)
         self.suppr_all.setGeometry(QtCore.QRect(100, 500, 121, 25))
         self.suppr_all.setObjectName("suppr_all")
+        self.suppr_all.clicked.connect(self.supprClick)
 
         self.correctedTxt = QtWidgets.QTextEdit(self.centralwidget)
         self.correctedTxt.setGeometry(QtCore.QRect(405, 5, 390, 485))
@@ -75,3 +76,7 @@ class Ui_MainWindow(object):
 
         s = '\n'.join(check) + "\n\nCorrection proposée:\n" + correct
         self.correctedTxt.setText(s)
+
+    def supprClick(self):
+        self.textToCorrect.setText("")
+        self.correctedTxt.setText("")
