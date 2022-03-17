@@ -71,10 +71,16 @@ class Ui_MainWindow(object):
     def correctClick(self):
         toCorrect = self.textToCorrect.toPlainText()
         print(toCorrect)
-        check = [match.message for match in self.tool.check(toCorrect)]
+        print(self.tool.check(toCorrect))
+
+        toolCheck = self.tool.check(toCorrect)
+        categories = {match.category: match.message for match in toolCheck}
+        print(categories)
+
+        message = [( rule + ' :\n  ' + categories[rule]) for rule in categories]
         correct = self.tool.correct(toCorrect)
 
-        s = '\n'.join(check) + "\n\nCorrection proposée:\n" + correct
+        s = '\n'.join(message) + "\n\nCorrection proposée:\n" + correct
         self.correctedTxt.setText(s)
 
     def supprClick(self):
