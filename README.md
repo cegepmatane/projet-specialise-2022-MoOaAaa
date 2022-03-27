@@ -10,3 +10,10 @@ projet-specialise-2022-Heidet_Lucas created by GitHub Classroom
 
 ### Lien pour la fiche de PoC
 * [Fiche de PoC](https://docs.google.com/document/d/1SmATb21jWMS6NCMENI7VLnfCyQyc8l4yJCxtf_9WOGk/edit?usp=sharing)
+
+### Lien pour la fiche d'analyse fonctionnelle 
+* [Analyse fonctionnelle](https://github.com/cegepmatane/projet-specialise-2022-MoOaAaa/blob/main/docs/Analyse%20fonctionnelle.pdf)
+
+### Screenshot page d'agrégation
+* [Agrégation](https://github.com/cegepmatane/projet-specialise-2022-MoOaAaa/blob/main/docs/Agre.PNG)
+
