@@ -27,12 +27,12 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
 
         self.correctBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.correctBtn.setGeometry(QtCore.QRect(0, 500, 89, 25))
+        self.correctBtn.setGeometry(QtCore.QRect(20, 500, 90, 25))
         self.correctBtn.setObjectName("correctBtn")
         self.correctBtn.clicked.connect(self.correctClick)
 
         self.suppr_all = QtWidgets.QPushButton(self.centralwidget)
-        self.suppr_all.setGeometry(QtCore.QRect(100, 500, 121, 25))
+        self.suppr_all.setGeometry(QtCore.QRect(130, 500, 90, 25))
         self.suppr_all.setObjectName("suppr_all")
         self.suppr_all.clicked.connect(self.supprClick)
 
@@ -54,7 +54,17 @@ class Ui_MainWindow(object):
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 22))
         self.menubar.setObjectName("menubar")
+
+        self.appMenu = self.menubar.addMenu('App')
+        self.langMenu = QtWidgets.QMenu('Langage', self)
+        self.langActFr = QtWidgets.QAction('Français',self)
+        self.langActEn = QtWidgets.QAction('English',self)
+        self.langMenu.addActions([self.langActEn,self.langActFr])
+        self.appMenu.addMenu(self.langMenu)
+
         MainWindow.setMenuBar(self.menubar)
+
+
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
