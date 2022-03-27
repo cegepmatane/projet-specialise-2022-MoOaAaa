@@ -1,0 +1,24 @@
+QMainWindon{
+    color: #dddddd;
+}
+
+QPushButton{
+    background-color: #224eff;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    font: bold 12px;
+    min-width: 6em;
+    max-width: 6em;
+    min-height: 20px;
+    padding: 6px;
+    margin: 20px;
+}
+
+QTextEdit{
+    background-color: #F2F2F2;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: #224eff;
+}

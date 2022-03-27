@@ -15,6 +15,9 @@ class UIWindow(QtWidgets.QMainWindow, GUI.Ui_MainWindow):
 
 def main():
     app = QApplication(sys.argv)
+    with open('stylesheet.qss', 'r') as f:
+        style = f.read()
+    app.setStyleSheet(style)
     form = UIWindow()
     form.show()
     app.exec_()
