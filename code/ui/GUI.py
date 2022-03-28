@@ -27,17 +27,24 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
 
         self.correctBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.correctBtn.setGeometry(QtCore.QRect(0, 500, 89, 25))
+        self.correctBtn.setGeometry(QtCore.QRect(10, 500, 90, 25))
         self.correctBtn.setObjectName("correctBtn")
         self.correctBtn.clicked.connect(self.correctClick)
 
         self.suppr_all = QtWidgets.QPushButton(self.centralwidget)
-        self.suppr_all.setGeometry(QtCore.QRect(100, 500, 121, 25))
+        self.suppr_all.setGeometry(QtCore.QRect(130, 500, 90, 25))
         self.suppr_all.setObjectName("suppr_all")
         self.suppr_all.clicked.connect(self.supprClick)
 
+        self.typosTxt = QtWidgets.QTextEdit(self.centralwidget)
+        self.typosTxt.setGeometry(QtCore.QRect(405, 5, 390, 240))
+        self.typosTxt.setReadOnly(True)
+        self.typosTxt.setObjectName("correctedTxt")
+        self.correctedScrollBar = self.typosTxt.verticalScrollBar()
+        self.correctedScrollBar.setValue(self.correctedScrollBar.maximum())
+
         self.correctedTxt = QtWidgets.QTextEdit(self.centralwidget)
-        self.correctedTxt.setGeometry(QtCore.QRect(405, 5, 390, 485))
+        self.correctedTxt.setGeometry(QtCore.QRect(405, 250, 390, 240))
         self.correctedTxt.setReadOnly(True)
         self.correctedTxt.setObjectName("correctedTxt")
         self.correctedScrollBar = self.correctedTxt.verticalScrollBar()
@@ -77,11 +84,12 @@ class Ui_MainWindow(object):
         categories = {match.category: match.message for match in toolCheck}
         print(categories)
 
-        message = [( rule + ' :\n  ' + categories[rule]) for rule in categories]
+        message = [( match.category + ' :\n  ' + match.message) for match in toolCheck]
         correct = self.tool.correct(toCorrect)
 
-        s = '\n'.join(message) + "\n\nCorrection proposée:\n" + correct
-        self.correctedTxt.setText(s)
+        s = '\n\n'.join(message)
+        self.typosTxt.setText(s)
+        self.correctedTxt.setText("Correction proposée : \n\n" + correct)
 
     def supprClick(self):
         self.textToCorrect.setText("")
