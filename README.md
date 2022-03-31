@@ -1,6 +1,10 @@
 # projet-specialise-2022-Heidet_Lucas
 projet-specialise-2022-Heidet_Lucas created by GitHub Classroom
 <br><br>
+### Contexte
+Dans le cadre du cours de projet spécialisé du Céegep de Matane, j'ai décidé de créer une application Python de correction orthographique et grammaticale.
+Pour choisir les techonolgies, j'ai fait des recherches, visibles dans les fiches que vous trouverez plus bas.
+Le cheminement du projet est visible dans les [milestones](https://github.com/cegepmatane/projet-specialise-2022-MoOaAaa/milestones), au fil des issues.
 ### Lien du Docs kickoff du projet
 * [Fiche de lancement Kickoff](https://github.com/cegepmatane/projet-specialise-2022-MoOaAaa/blob/main/docs/Lancement%20_kickoff_%20du%20Projet.pdf)
 
@@ -16,4 +20,3 @@ projet-specialise-2022-Heidet_Lucas created by GitHub Classroom
 
 ### Screenshot page d'agrégation
 * [Agrégation](https://github.com/cegepmatane/projet-specialise-2022-MoOaAaa/blob/main/docs/Agre.PNG)
-
