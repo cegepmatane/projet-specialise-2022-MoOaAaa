@@ -5,13 +5,13 @@ from pathlib import Path
 sys.path.insert(1, str(Path(__file__).parents[2].absolute()))
 sys.path.insert(2, str(Path(__file__).parents[1].absolute()))
 sys.path.extend([str(Path(__file__).parents[1] / "src")])
-print(sys.path)
+# print(sys.path)
 import GUI
 
 class UIWindow(QtWidgets.QMainWindow, GUI.Ui_MainWindow):
     def __init__(self, parent=None):
         super(UIWindow, self).__init__(parent)
-        self.setupUi(self)
+        self.loadingScreen(self)
 
 def main():
     app = QApplication(sys.argv)
@@ -20,7 +20,8 @@ def main():
     app.setStyleSheet(style)
     form = UIWindow()
     form.show()
-    app.exec_()
+    form.loading()
+    sys.exit(app.exec_())
 
 if __name__ == '__main__':
     main()
