@@ -189,10 +189,21 @@ class Ui_MainWindow(QMainWindow):
         self.toCorrectScrollBar.setValue(self.toCorrectScrollBar.maximum())
 
         MainWindow.setCentralWidget(self.centralWidget)
+
         self.menubar = QtWidgets.QMenuBar(self)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 22))
         self.menubar.setObjectName("menubar")
+
+        # self.appMenu = self.menubar.addMenu('App')
+        # self.langMenu = QtWidgets.QMenu('Langage', self)
+        # self.langActFr = QtWidgets.QAction('Français', self)
+        # self.langActEn = QtWidgets.QAction('English', self)
+        # self.langMenu.addActions([self.langActEn, self.langActFr])
+        # self.appMenu.addMenu(self.langMenu)
+
         self.setMenuBar(self.menubar)
+
+
         self.statusbar = QtWidgets.QStatusBar(self)
         self.statusbar.setObjectName("statusbar")
         self.setStatusBar(self.statusbar)
