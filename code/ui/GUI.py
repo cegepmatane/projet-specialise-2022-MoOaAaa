@@ -50,7 +50,7 @@ class LoadingScreeen(QWidget):
     def __init__(self,lang):
         super().__init__()
         self.setFixedSize(700,350)
-        # self.setWindowFlag(Qt.FramelessWindowHint)
+        self.setWindowFlag(Qt.FramelessWindowHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
 
         self.n = 100
@@ -101,6 +101,11 @@ class LoadingScreeen(QWidget):
         self.loadingLabel.setObjectName('loadingLabel')
         self.loadingLabel.setAlignment(Qt.AlignCenter)
         self.loadingLabel.setText('Loading...')
+
+        qtRectangle = self.frameGeometry()
+        centerPoint = QDesktopWidget().availableGeometry().center()
+        qtRectangle.moveCenter(centerPoint)
+        self.move(qtRectangle.topLeft())
 
     def setProgressBarVal(self,val):
         self.progressBar.setValue(val)
@@ -194,6 +199,11 @@ class Ui_MainWindow(QMainWindow):
 
         self.retranslateUi()
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        qtRectangle = self.frameGeometry()
+        centerPoint = QDesktopWidget().availableGeometry().center()
+        qtRectangle.moveCenter(centerPoint)
+        self.move(qtRectangle.topLeft())
 
     def retranslateUi(self):
         _translate = QtCore.QCoreApplication.translate
